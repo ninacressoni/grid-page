@@ -1,0 +1,230 @@
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@keyframes slidein {
+    from {
+      translate: 150vw 0;
+      scale: 200% 1;
+    }
+  
+    to {
+      translate: 0 0;
+      scale: 100% 1;
+    }
+}
+
+@keyframes bounce {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-50px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes slide {
+    0% {
+      left: 0;
+      top: 0;
+    }
+    50% {
+      left: 244px;
+      top: 100px;
+    }
+    100% {
+      left: 488px;
+      top: 0;
+    }
+}
+
+.red-bg {
+    background-color: #ff002e;
+}
+
+.yellow-bg {
+    background-color: #ffd600;
+}
+
+.green-bg {
+    background-color: #00ff94;
+    display: flex;
+    align-items: center;
+}
+
+.blue-bg {
+    background-color: #0fd4ff;
+}
+
+.mg {
+    margin: 20px;
+}
+
+.section-space {
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+button {
+    border: none;
+    padding: 8px 30px;
+    border-radius: 8px;
+}
+
+.black-hover-white{
+    background-color: black;
+    color: white;
+}
+
+.black-hover-white:hover {
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}
+
+.white-hover-gray {
+    background-color: white;
+    color: black;
+}
+
+.white-hover-gray:hover {
+    background-color: gray;
+    transition: 0.5s;
+}
+
+.hero-headline {
+    animation-duration: 3s;
+    animation-name: slidein;
+}
+
+@media (max-width: 600px) {
+    h1, p {
+        font-size: 30px;
+    }
+    .content {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .wrapper {
+        display: grid; 
+        grid-template-areas: 
+        "top top"
+        "left right"
+        "bottom bottom";
+        gap: 10px;
+        padding-top: 20px;
+    }
+
+    .b-1 {
+        grid-area: top;
+    }
+      
+    .b-2 {
+        grid-area: left;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        transform-origin: bottom;
+    }
+
+    .b-2:hover {
+        animation-name: bounce;
+        animation-timing-function: ease;
+    }
+      
+    .b-3 {
+        grid-area: right;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        transform-origin: bottom;
+    }
+
+    .b-3:hover {
+        animation-name: bounce;
+        animation-timing-function: ease;
+    }
+      
+    .b-4 {
+        grid-area: bottom;
+    }
+
+    .section-space-hero {
+        padding: 10px;
+    }
+
+    .headline {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .buttons {
+        display: grid;
+        gap: 10px;
+    }
+}
+
+@media (min-width: 600px) {
+    h1, p {
+        font-size: 60px;
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    
+    .wrapper {
+        display: grid; 
+        grid-template-areas: 
+        "top top top"
+        "left middle right";
+        gap: 10px;
+    }
+    
+    .b-1 {
+        grid-area: top;
+    }
+      
+    .b-2 {
+        grid-area: left;
+    }
+      
+    .b-3 {
+        grid-area: middle;
+    }
+      
+    .b-4 {
+        grid-area: right;
+    }
+    
+    .section-space-hero {
+        padding: 50px 70px 100px 70px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .buttons {
+        transform: translateY(-20px);
+    }
+
+    button {
+        width: 150px;
+    }
+
+    .stage {
+        position: relative;
+      }
+
+      .stage:hover .ball {
+        animation: slide 2s linear;
+      }
+
+      .ball {
+        position: absolute;
+      }
+}
